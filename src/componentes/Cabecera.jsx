@@ -8,7 +8,7 @@ const Cabecera = (props) => {
   }
 
   return (
-    <nav>
+    <nav className="cabecera">
       <Link to="/">
         <button> <img src="src\assets\mp-logoNaranja100.png"></img></button>
       </Link>

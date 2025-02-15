@@ -4,23 +4,22 @@ import IdiomaContext from "../contextos/IdiomaContexto";
 
 const Cuerpo = (props) => {
   const idiomaContext = useContext(IdiomaContext);
-  console.log(props);
   return (
     <div>
       <h1>{idiomaContext.empresas}</h1>
-      <Link to="/empresas">
+      <Link to="/empresa">
         <button>
           <img src="src\assets\empresa.jpg"></img>
         </button>
       </Link>
       <h1>{idiomaContext.centro}</h1>
-      <Link to="/centro-educativo">
+      <Link to="/centroeducativo">
         <button>
           <img src="src\assets\centro.jpg"></img>
         </button>
       </Link>
       <h1>{idiomaContext.alumnos}</h1>
-      <Link to="/alumnos">
+      <Link to="/alumno">
         <button>
           <img src="src\assets\alumno.jpg"></img>
         </button>
