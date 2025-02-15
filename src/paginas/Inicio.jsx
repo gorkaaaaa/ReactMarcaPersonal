@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import Cuerpo from "../componentes/Cuerpo";
-import Pie from "../componentes/Pie";
+import Cuerpo from "../componentes/home/Cuerpo";
+import Pie from "../componentes/home/Pie";
 import IdiomaContext from "../contextos/IdiomaContexto";
 
 const Inicio = () => {
