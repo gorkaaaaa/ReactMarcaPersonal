@@ -5,11 +5,11 @@ import Inicio from "./paginas/Inicio";
 import { useState } from "react";
 import IdiomaContext from "./contextos/IdiomaContexto";
 import idioma from "./mocks/idioma";
-import Empresas from "./paginas/Empresas/Empresas";
+import Empresas from "./paginas/Empresa/Empresas";
 import CentroEducativo from "./paginas/CentroEducativo";
 import Alumnos from "./paginas/Alumnos";
-import EmpresaProyectos from "./paginas/Empresas/EmpresaProyectos";
-import EmpresaAlumnos from "./paginas/Empresas/EmpresaAlumnos";
+import EmpresaProyectos from "./paginas/Empresa/EmpresaProyectos";
+import EmpresaAlumnos from "./paginas/Empresa/EmpresaAlumnos";
 
 function App() {
   const [idiomaPagina, setIdiomaPagina] = useState(idioma.es);

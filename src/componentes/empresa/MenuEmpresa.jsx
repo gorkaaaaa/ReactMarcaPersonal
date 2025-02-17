@@ -1,23 +1,20 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import IdiomaContext from "../../contextos/IdiomaContexto";
+import './MenuEmpresa.css'
 
 const MenuEmpresa = () => {
   const idiomaContext = useContext(IdiomaContext);
 
   return (
-    <nav>
-      <h1>{idiomaContext.empresas}</h1>
-      <Link to="/empresa/proyectos">
-        <a>
-          <p>{idiomaContext.proyectos}</p>
-        </a>
+    <nav className="menuEmpresa">
+      <h1 className="tituloEmpresa">[ {idiomaContext.empresas} ]</h1>
+      <Link className="linkNav" to="/empresa/proyectos">
+        <p >{idiomaContext.proyectos}</p>
       </Link>
 
-      <Link to="/empresa/alumnos">
-        <a>
-          <p>{idiomaContext.alumnos}</p>
-        </a>
+      <Link className="linkNav" to="/empresa/alumnos">
+        <p >{idiomaContext.alumnos}</p>
       </Link>
     </nav>
   );
