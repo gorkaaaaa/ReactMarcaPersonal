@@ -1,0 +1,29 @@
+.headerCabecera {
+    background-color: #f8f8f8;
+    padding: 0px 40px;
+  }
+  
+  .navCabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .logoCabecera {
+    height: 80px;
+  }
+  
+  .tituloCabecera {
+    font-size: 30px;
+    color: #f28c28;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  .banderasCabecera {
+    height: 30px;
+    margin-left: 10px;
+  }
+  

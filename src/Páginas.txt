@@ -1,0 +1,25 @@
+Páginas:
+
+/Home:
+    • Componente PieCount
+ 	◦ Devolverá el count de empresas, proyectos y alumnos
+
+/Empresa:
+
+    • Componente MenuEmpresa ------ HECHO------
+        ◦ <nav> con Empresa/proyectos/alumnos el cual enrutará a proyectos o alumnos
+
+/Empresa/proyectos:
+
+    • Componente MenuEmpresa (*)--------HECHO--------
+    • Componente ListaFamiliaProfesionales
+    • Componente ResultadoBusquedaProyectos
+    • Componente ProyectoMinCard
+
+/Empresa/alumnos:
+
+    • Componente MenuEmpresa(*)--------HECHO--------
+    • Componente ListaPerfilesCompetenciales
+    • Componente ListaFamiliasProfesionales (*)
+    • Componente ResultadoBusquedaAlumnos
+    • Componente AlumnoMinCard
