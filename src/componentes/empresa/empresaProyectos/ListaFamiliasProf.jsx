@@ -20,19 +20,18 @@ const ListaFamiliasProfesionales = (props) => {
   const familiaSelect = watch(FAMILIA.FAMILIA);
 
   useEffect(() => {
-    console.log(familiaSelect);
-    props.filtrarLista(familiaSelect ? props.familia : null);
+    props.filtrarLista(familiaSelect ? props.id : null);
   }, [familiaSelect]);
 
   return (
     <form>
       <input
         className="customCheckBoxInput"
-        id={props?.id}
+        id={props.id}
         type="checkbox"
         {...register(FAMILIA.FAMILIA)}
       ></input>
-      <label htmlFor={props?.id} className="customCheckBoxWrapper">
+      <label htmlFor={props.id} className="customCheckBoxWrapper">
         <div className="customCheckBox">
           <div className="inner">{props?.familia}</div>
         </div>

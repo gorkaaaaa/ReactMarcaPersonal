@@ -4,29 +4,45 @@ import MenuEmpresa from "../../componentes/empresa/MenuEmpresa";
 import useFamiliasProf from "../../hooks/useFamiliasProf";
 import "../../componentes/empresa/empresaProyectos/ListaFamiliasProf.css";
 import ResultBuscarProyect from "../../componentes/empresa/empresaProyectos/ResultBuscarProyect";
+import useProyectos from "../../hooks/useProyectos";
 
 const EmpresaProyectos = () => {
   const familiasProf = useFamiliasProf();
+  const proyResultado = useProyectos();
 
-  const [listaCompleta, setListaCompleta] = useState([]);
-  const [listaFiltrada, setListaFiltrada] = useState([]);
+  const [listaFamilias, setListaFamilias] = useState([]);
+  const [listaProyectos, setListaProyectos] = useState([]);
+  const [listaProyectosFiltrada, setListaProyectosFiltrada] = useState([]);
+
   function crearListas() {
-    setListaCompleta(familiasProf);
-    setListaFiltrada(familiasProf);
-  }
-
-  function filtrarLista(familia ) {
-    if (!familia) {
-      setListaFiltrada(listaCompleta);
-    } else {
-      const familiaFiltrada = listaFiltrada.filter((familiaAFiltrar) => {
-        return familiaAFiltrar.nombre.startsWith(familia);
-      });
-      setListaFiltrada(familiaFiltrada);
+    if (!familiasProf.buscando) {
+      setListaFamilias(familiasProf.familiasProf);
+    }
+    if (!proyResultado.buscando) {
+      setListaProyectos(proyResultado.proyectos);
+      setListaProyectosFiltrada(proyResultado.proyectos);
     }
   }
 
-  useEffect(crearListas, familiasProf);
+  function filtrarLista(familiaId) {
+    if (!familiaId) {
+      setListaProyectosFiltrada(listaProyectos);
+    } else {
+      const proyectosFiltradosArray = [];
+      listaProyectosFiltrada.forEach((proyecto) => {
+        for (let i = 0; i < proyecto.ciclos.length; i++) {
+          if (proyecto.ciclos[i].familia_id == familiaId) {
+            proyectosFiltradosArray.push(proyecto);
+          }
+        }
+      });
+      console.log(proyectosFiltradosArray);
+      setListaProyectosFiltrada(proyectosFiltradosArray);
+      console.log("estado", listaProyectosFiltrada)
+    }
+  }
+
+  useEffect(crearListas, familiasProf.familiasProf);
 
   function listarFamiliasProf(familia) {
     return (
@@ -38,20 +54,21 @@ const EmpresaProyectos = () => {
     );
   }
 
-  function listarResultados(familia) {
-    return <ResultBuscarProyect familia={familia}></ResultBuscarProyect>;
-  }
-
   return (
     <div>
       <MenuEmpresa></MenuEmpresa>
       <details className="filter-section">
         <summary className="filter-title">Búsqueda de proyectos</summary>
+        <p>Filtrar por familia profesional</p>
         <div className="customCheckBoxHolder">
-          {listaCompleta.map(listarFamiliasProf)}
+          {listaFamilias.map(listarFamiliasProf)}
         </div>
       </details>
-      <div>{listaFiltrada.map(listarResultados)}</div>
+      <div>
+        <ResultBuscarProyect
+          listaProyectosFiltrada={listaProyectosFiltrada}
+        ></ResultBuscarProyect>
+      </div>
     </div>
   );
 };

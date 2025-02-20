@@ -1,11 +1,14 @@
-const ResultBuscarProyect=(props)=>{
-    console.log(props)
-    return(
-        <div>
-            <p>{props?.familia.nombre}</p>
-            <img src="https://i.pinimg.com/736x/c8/6a/40/c86a404923212a9bb09134c6c8813e8d.jpg"></img>
-        </div>
-    )
-}
+import { useEffect, useState } from "react";
+import ProyectoMinCard from "./ProyectoMinCard";
+import useProyectos from "../../../hooks/useProyectos";
 
-export default ResultBuscarProyect
+const ResultBuscarProyect = (props) => {
+  console.log(props.listaProyectosFiltrada)
+  function listarResultados(proyecto) {
+    return <ProyectoMinCard proyecto={proyecto}></ProyectoMinCard>;
+  }
+
+  return <div>{props.listaProyectosFiltrada.map(listarResultados)}</div>;
+};
+
+export default ResultBuscarProyect;

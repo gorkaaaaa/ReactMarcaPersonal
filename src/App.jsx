@@ -12,6 +12,7 @@ import EmpresaProyectos from "./paginas/Empresa/EmpresaProyectos";
 import EmpresaAlumnos from "./paginas/Empresa/EmpresaAlumnos";
 
 function App() {
+  
   const [idiomaPagina, setIdiomaPagina] = useState(idioma.es);
 
   function cambiaIdioma(idiomaElegido) {
