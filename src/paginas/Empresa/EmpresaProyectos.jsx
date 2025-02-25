@@ -38,7 +38,7 @@ const EmpresaProyectos = () => {
       });
       console.log(proyectosFiltradosArray);
       setListaProyectosFiltrada(proyectosFiltradosArray);
-      console.log("estado", listaProyectosFiltrada)
+      console.log("estado", listaProyectosFiltrada);
     }
   }
 
