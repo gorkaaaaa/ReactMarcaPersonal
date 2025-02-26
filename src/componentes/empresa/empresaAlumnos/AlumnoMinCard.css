@@ -1,0 +1,15 @@
+.sectionMinCard {
+    background-color: #b2b3b3;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    padding: 5%;
+  }
+  
+  .divCardMinCard {
+    border-radius: 15px;
+  }
+  
+  .imgMinCard {
+    width: 140px;
+    border-radius: 10px;
+  }
