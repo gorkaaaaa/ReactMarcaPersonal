@@ -1,70 +1,39 @@
 import { useEffect, useState } from "react";
 import ListaCompetencias from "../../componentes/empresa/empresaAlumnos/ListaCompetencias";
 import MenuEmpresa from "../../componentes/empresa/MenuEmpresa";
-import useCompetencias from "../../hooks/useCompetencias";
-import useAlumnos from "../../hooks/useAlumnos";
 import ResultBuscarAlumno from "../../componentes/empresa/empresaAlumnos/ResultBuscarAlumno";
+import useAlumnosFilter from "../../hooks/useAlumnosFilter";
+import ListaFamiliasProfesionales from "../../componentes/empresa/empresaProyectos/ListaFamiliasProf";
 
 const EmpresaAlumnos = () => {
-  const competencias = useCompetencias();
-  const alumnos = useAlumnos();
 
-  //   console.log("alumnos", alumnos);
-  const [listaCompetencias, setListaCompetencias] = useState([]);
-  const [listaAlumnos, setListaAlumnos] = useState([]);
-  const [listaAlumnosFiltrada, setListaAlumnosFiltrada] = useState([]);
-
-  function crearListas() {
-    if (!competencias.buscando) {
-      setListaCompetencias(competencias.competencias);
-    }
-    if (!alumnos.buscando) {
-      setListaAlumnos(alumnos.alumnos);
-      setListaAlumnosFiltrada(alumnos.alumnos);
-    }
-  }
-
-  function listarCompetencias(competencia) {
-    return (
-      <ListaCompetencias
-        competencia={competencia.nombre}
-        id={competencia.id}
-        filtrarLista={filtrarLista}
-      ></ListaCompetencias>
-    );
-  }
-
-  function filtrarLista(competenciaId) {
-    if (!competenciaId) {
-      setListaAlumnosFiltrada(listaAlumnos);
-    } else {
-      const alumnosArray = [];
-      listaAlumnosFiltrada.forEach((alumno) => {
-        for (let i = 0; i < alumno.competencias.length; i++) {
-            console.log(alumno.competencias[i].id)
-          if (alumno.competencias[i].id == competenciaId) {
-            alumnosArray.push(alumno);
-          }
-        }
-      });
-      setListaAlumnosFiltrada(alumnosArray);
-    }
-  }
-
-  useEffect(crearListas, alumnos.alumnos);
+  // Todos los componentes de EmpresaAlumno tienen en esencia el mismo funcionamiento
+  // que en EmpresaProyectos, solo que con diferente contenido, ya que cada resultado del fetch
+  // devuelve un array con un formato distinto, por lo que no he podido aunar toda la lógica en un mismo sitio
+  // pero sí la he reuitilizado
+  
+  const listaAlumnos=useAlumnosFilter();
 
   return (
     <div>
       <MenuEmpresa></MenuEmpresa>
       <details className="filter-section">
-        <summary className="filter-title">Búsqueda de competencias</summary>
+        <summary className="filter-title">Busca a tus alumnos</summary>
         <p>Filtrar por competencia</p>
         <div className="customCheckBoxHolder">
-          {listaCompetencias.map(listarCompetencias)}
+        <ListaCompetencias
+            filtrarLista={listaAlumnos.filtrarLista}
+          ></ListaCompetencias>
+        </div>
+        <p>Filtrar por familia profesional</p>
+        <div className="customCheckBoxHolder">
+        <ListaFamiliasProfesionales
+            filtrarLista={listaAlumnos.filtrarLista}
+          ></ListaFamiliasProfesionales>
         </div>
       </details>
       <div>
-        <ResultBuscarAlumno listaAlumnosFiltrada={listaAlumnosFiltrada}>
+        <ResultBuscarAlumno listaAlumnosFiltrada={listaAlumnos.listaAlumnosFiltrada}>
 
         </ResultBuscarAlumno>
       </div>

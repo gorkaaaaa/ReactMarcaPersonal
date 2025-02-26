@@ -4,8 +4,15 @@ import './PieContador.css'
 import useCount from "../../../hooks/useCount";
 
 const PieContador = () => {
+
+  // Constante que almacenará el contexto elegido en la cabecera para luego usarlo en
+  // las distintas partes de la página
   const idiomaContext = useContext(IdiomaContext);
+
+  // Constante que almacena el valor recogido por el hook useCount, el cual hace fetch
+  // del endpoint getCount
   const contador=useCount();
+  
   return (
     <div className="divPpalContador">
       <div className="divContador">

@@ -1,11 +1,18 @@
 import "./ProyectoMinCard.css";
 
 const ProyectoMinCard = (props) => {
+
+  // Puesto que participantes y ciclos son arrays, los extraigo en dos constantes distintas
+  // que posteriormente usaré para mapear
   const participantes = props.proyecto.participantes;
   const ciclos = props.proyecto.ciclos;
+
+  // Funcion para mapear los participantes del proyecto
   function listarParticipantes(participante) {
     return <>{participante.name}<br/> </>;
   }
+
+  // Funcion para mapear los ciclos a los que pertenece el proyecto
   function listarCiclos(ciclo) {
     return (
       <>

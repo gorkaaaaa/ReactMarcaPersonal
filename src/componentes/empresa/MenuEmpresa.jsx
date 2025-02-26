@@ -4,6 +4,9 @@ import IdiomaContext from "../../contextos/IdiomaContexto";
 import './MenuEmpresa.css'
 
 const MenuEmpresa = () => {
+
+  // Constante que almacenará el contexto elegido en la cabecera para luego usarlo en
+  // las distintas partes de la página
   const idiomaContext = useContext(IdiomaContext);
 
   return (

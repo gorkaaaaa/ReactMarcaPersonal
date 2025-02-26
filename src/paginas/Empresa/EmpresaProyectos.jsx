@@ -9,6 +9,10 @@ import useProyectosFilter from "../../hooks/useProyectosFilter";
 
 const EmpresaProyectos = () => {
 
+  // Constante que almacena todos los proyectos comos estado y que contiene
+  // una funcion para filtrar, la cual recibirá los valores de las familias profesionales
+  // en el componente ListaFamiliasProfesionales y alterará los proyectos listados
+  
   const listaProyectos=useProyectosFilter();
 
   return (
@@ -16,7 +20,7 @@ const EmpresaProyectos = () => {
       <MenuEmpresa></MenuEmpresa>
       <details className="filter-section">
         <summary className="filter-title">Búsqueda de proyectos</summary>
-        <p>Filtrar por familia profesional</p>
+        <h5>Filtrar por familia profesional: </h5>
         <div>
           <ListaFamiliasProfesionales
             filtrarLista={listaProyectos.filtrarLista}

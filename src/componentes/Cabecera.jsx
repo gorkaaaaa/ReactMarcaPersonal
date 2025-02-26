@@ -2,6 +2,10 @@ import { Link } from "react-router-dom";
 import "./Cabecera.css";
 
 const Cabecera = (props) => {
+
+  // Función que se asociará al onClick de cada banderá y que cambiará el idioma
+  // ya que devolverán 'es' o 'uk'
+
   function selectIdioma(idiomaElegido) {
     props.cambiaIdioma(idiomaElegido);
   }

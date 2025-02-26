@@ -12,9 +12,10 @@ import EmpresaProyectos from "./paginas/Empresa/EmpresaProyectos";
 import EmpresaAlumnos from "./paginas/Empresa/EmpresaAlumnos";
 
 function App() {
-  
+  // Estado que contendrá el idioma seleccionado
   const [idiomaPagina, setIdiomaPagina] = useState(idioma.es);
 
+  // Función que se pasrá al componente Cabecera y que cambiará el idioma en funcion el botón pulsado
   function cambiaIdioma(idiomaElegido) {
     setIdiomaPagina(idioma[idiomaElegido]);
   }
@@ -22,6 +23,7 @@ function App() {
   return (
     <>
       <Cabecera cambiaIdioma={cambiaIdioma}></Cabecera>
+      {/* Rutas que consumirán el contexto de idioma */}
       <IdiomaContext.Provider value={idiomaPagina}>
         <Routes>
           <Route path="/" element={<Inicio></Inicio>}></Route>
