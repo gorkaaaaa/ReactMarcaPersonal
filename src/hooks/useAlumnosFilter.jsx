@@ -19,7 +19,7 @@ const useAlumnosFilter=()=>{
           setListaAlumnosFiltrada(listaAlumnos);
         } else {
           const alumnosArray = [];
-          listaAlumnosFiltrada.forEach((alumno) => {
+          listaAlumnos.forEach((alumno) => {
             for (let i = 0; i < competenciaId.length; i++) {
               for (let n = 0; n < alumno.competencias.length; n++) {
                 if (alumno.competencias[n].id == competenciaId[i]) {

@@ -34,7 +34,7 @@ const useProyectosFilter=()=>{
 
         // Recorre el array de proyectos filtrados y por cada familia que esta función haya
         // recibido como array, comprobará cada familia_id que pertenece a cada proyecto
-        listaProyectosFiltrada.forEach((proyecto) => {
+        listaProyectos.forEach((proyecto) => {
           for (let i = 0; i < familiasId.length; i++) {
             for (let n = 0; n < proyecto.ciclos.length; n++) {
               if (proyecto.ciclos[n].familia_id == familiasId[i]) {

@@ -4,14 +4,13 @@ import { useForm } from "react-hook-form";
 import useFamiliasProf from "../../../hooks/useFamiliasProf";
 
 const ListaFamiliasProfesionales = (props) => {
-
   // Constante que almacena el resultado del fetch de familias profesionales
   const familiasProf = useFamiliasProf();
 
   // Estados de las listas, una para saber qué checkbox hemos seleccionado y otra
   // con todas las familias para poder mapearlas
   const [listaFamilias, setListaFamilias] = useState([]);
-  const [listaFamiliasSelect, setListaFamiliasSelect]=useState([]);
+  const [listaFamiliasSelect, setListaFamiliasSelect] = useState([]);
 
   // Funcion para crear las listas
   function crearLista() {
@@ -40,40 +39,44 @@ const ListaFamiliasProfesionales = (props) => {
   // han cargado todos
   useEffect(crearLista, familiasProf.familiasProf);
 
-  // Funcion para mapear las familias profesionales en forma de checkboxes 
+  // Funcion para mapear las familias profesionales en forma de checkboxes
   function listarFamiliasProf(familia) {
     return (
-      <form onChange={mostrarId}>
-        <input
-          className="customCheckBoxInput"
-          id={familia.id}
-          type="checkbox"
-          {...register(FAMILIA.FAMILIA)}
-        ></input>
-        <label htmlFor={familia.id} className="customCheckBoxWrapper">
-          <div className="customCheckBox">
-            <div className="inner">{familia.nombre}</div>
-          </div>
-        </label>
-      </form>
+      <form>
+        <div key={familia.id}>
+          <input
+            onClick={()=>{mostrarId(familia.id)}}
+            className="customCheckBoxInput"
+            id={familia.id}
+            type="checkbox"
+            value={familia.id}
+            {...register(FAMILIA.FAMILIA)}
+          ></input>
+          <label htmlFor={familia.id} className="customCheckBoxWrapper">
+            <div className="customCheckBox">
+              <div className="inner">{familia.nombre}</div>
+            </div>
+          </label>
+        </div>
+        </form>
     );
   }
 
   // Funcion que recibirá el id del checkbox marcado y que posteriormente enviará a la función
   // filtrarLista el array con los ids que debe filtrar
-  function mostrarId(event) {
-
-    // En caso de que la lista de familias seleccionadas ya contenga ese id, significa que la checkbox
-    // se está pulsando por segunda vez, por tanto, desmarcando, por lo que se eliminará del array usando la función filter
-    // y posteriormente pasará dicho array a la función recibida por props 
-    if(listaFamiliasSelect.includes(event.target.id)){
-      const listaSinId = listaFamiliasSelect.filter(id => id !== event.target.id);
+  function mostrarId(id) {
+    //  En caso de que la lista de familias seleccionadas ya contenga ese id, significa que la checkbox
+    //  se está pulsando por segunda vez, por tanto, desmarcando, por lo que se eliminará del array usando la función filter
+    //  y posteriormente pasará dicho array a la función recibida por props
+    if (listaFamiliasSelect.includes(id)) {
+      const listaSinId = listaFamiliasSelect.filter(
+        (e) => e !== id
+      );
       setListaFamiliasSelect(listaSinId);
       props.filtrarLista(listaSinId);
-
-    }else{
+    } else {
       // en caso de que el id no exista se añade al array lo devolvemos a la función
-      const listaIds=[...listaFamiliasSelect, event.target.id]
+      const listaIds = [...listaFamiliasSelect, id];
       setListaFamiliasSelect(listaIds);
       props.filtrarLista(listaIds);
     }

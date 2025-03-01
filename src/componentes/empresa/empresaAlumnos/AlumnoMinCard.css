@@ -10,6 +10,40 @@
   }
   
   .imgMinCard {
+    margin-top: 5px;
     width: 140px;
     border-radius: 10px;
   }
+
+  .banderaIdioma {
+    height: 30px;
+    margin-left: 10px;
+  }
+  .banderaIdiomaFr {
+    height: 22px;
+    margin-left: 10px;
+  }
+  .cert{
+    margin-top: -20px;
+  }
+
+  .idiomaBloque {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: -15px;
+    margin-left: -10px;
+    width: fit-content;
+  }
+  
+  .cert {
+    font-weight: bold;
+    color: black;
+    margin: 0;
+  }
+
+  .idiomaNivel{
+    padding-top: 14px;
+  }
+  
+  

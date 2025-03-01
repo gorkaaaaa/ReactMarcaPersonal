@@ -11,7 +11,7 @@ const EmpresaAlumnos = () => {
   // que en EmpresaProyectos, solo que con diferente contenido, ya que cada resultado del fetch
   // devuelve un array con un formato distinto, por lo que no he podido aunar toda la lógica en un mismo sitio
   // pero sí la he reuitilizado
-  
+
   const listaAlumnos=useAlumnosFilter();
 
   return (
@@ -24,12 +24,6 @@ const EmpresaAlumnos = () => {
         <ListaCompetencias
             filtrarLista={listaAlumnos.filtrarLista}
           ></ListaCompetencias>
-        </div>
-        <p>Filtrar por familia profesional</p>
-        <div className="customCheckBoxHolder">
-        <ListaFamiliasProfesionales
-            filtrarLista={listaAlumnos.filtrarLista}
-          ></ListaFamiliasProfesionales>
         </div>
       </details>
       <div>

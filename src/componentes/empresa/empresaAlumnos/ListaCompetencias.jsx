@@ -36,6 +36,7 @@ const ListaCompetencias = (props) => {
   function listarCompetencias(competencia) {
     return (
       <form onChange={mostrarId}>
+        <div key={competencia.id}>
         <input
           className="customCheckBoxInput"
           id={competencia.id}
@@ -47,6 +48,7 @@ const ListaCompetencias = (props) => {
             <div className="inner">{competencia.nombre}</div>
           </div>
         </label>
+        </div>
       </form>
     );
   }

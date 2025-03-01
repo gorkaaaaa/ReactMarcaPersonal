@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 import "./Cabecera.css";
+import logo from "../assets/mp-logoNaranja100.png";
+import banderaEs from "../assets/bandera-es.svg";
+import banderaUk from "../assets/bandera-uk.svg";
 
 const Cabecera = (props) => {
 
@@ -16,20 +19,20 @@ const Cabecera = (props) => {
         <Link to="/">
           <img
             className="logoCabecera"
-            src="src\assets\mp-logoNaranja100.png"
+            src={logo}
           ></img>
         </Link>
         <h1 className="tituloCabecera">MarcapersonalFP</h1>
         <a onClick={() => selectIdioma("es")}>
           <img
             className="banderasCabecera"
-            src="src\assets\bandera-es.svg"
+            src={banderaEs}
           ></img>
         </a>
         <a onClick={() => selectIdioma("uk")}>
           <img
             className="banderasCabecera"
-            src="src\assets\bandera-uk.svg"
+            src={banderaUk}
           ></img>
         </a>
       </nav>
