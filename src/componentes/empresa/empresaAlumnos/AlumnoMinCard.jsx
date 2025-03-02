@@ -20,7 +20,7 @@ const AlumnoMinCard = (props) => {
           <img className="banderaIdiomaFr" src={banderaFr} alt="FR" />
         )}
         {!(idioma.alpha2 === "en" || idioma.alpha2 === "es" || idioma.alpha2 === "fr") && (
-          <p>SC</p>
+          <p>SB</p>
         )}
         <p className="idiomaNivel">{idioma.nivel}</p>
         {idioma.certificado === 1 ? (
